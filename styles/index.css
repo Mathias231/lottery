@@ -1,0 +1,34 @@
+.container {
+    display: grid;
+    margin-top: 5px;
+    grid-template-columns: 2fr 6fr;
+}
+
+.leftContainer {
+    /* background-color: rgb(255, 0, 0); */
+    display: grid;
+    justify-content: center;
+    color: white;
+}
+
+.rightContainer {
+    /* background-color: rgb(21, 0, 255); */
+    height: 90vh;
+}
+
+.wheel-div {
+    padding-top: 11%;
+}
+
+.checkboxContainer {
+    font-family: system-ui, sans-serif;
+    font-size: 2rem;
+    font-weight: bold;
+    line-height: 1.1;
+    display: grid;
+    grid-template-columns: 1em auto;
+    gap: 0.5em;
+    text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff;
+    color: #000;
+    padding: 13px
+}
