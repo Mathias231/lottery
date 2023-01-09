@@ -25,12 +25,12 @@ const Wheel: ForwardRefRenderFunction<IWheelHandle, WheelProps> = (
   const [selectedItem, setSelectedItem] = useState<number | null>(null);
   const [spinnerDelay, _setSpinnerDelay] = useState(10000); // 10 seconds rotation speed
   const [spinAmount, _setSpinAmount] = useState(12); // Amount of spins during the 10 seconds rotation speed
-  //const audio = new Audio('../../audio/roulette-3.mp3');
+  // const audio = new Audio('../../audio/roulette.mp3');
 
   // Functions
   const selectItem = () => {
     if (selectedItem === null) {
-      //   audio.play();
+      // audio.play();
       const selectedItem = Math.floor(Math.random() * items.length);
       if (onSelectItem) {
         onSelectItem(selectedItem);
