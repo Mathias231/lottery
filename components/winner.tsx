@@ -1,6 +1,6 @@
 // Global Imports
 import Confetti from 'react-confetti';
-import useWindowSize from '@react-hook/window-size';
+import { useWindowSize } from '@react-hook/window-size';
 
 // Importing Interfaces
 import { WinnerProps } from '../interface/winner.interface';
@@ -17,7 +17,7 @@ const Winner = ({
     if (resetSelectedItem) resetSelectedItem();
   };
 
-  // const { width, height } = useWindowSize();
+  const { width, height } = useWindowSize();
   return (
     <div className="modal">
       <div className="box">
@@ -27,7 +27,7 @@ const Winner = ({
         <div className="button">
           <button onClick={reset}>Rull igjen!</button>
         </div>
-        <Confetti width={100} height={100} />
+        <Confetti width={width} height={height} />
       </div>
     </div>
   );
