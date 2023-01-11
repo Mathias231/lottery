@@ -17,7 +17,8 @@ const Winner = ({
     if (resetSelectedItem) resetSelectedItem();
   };
 
-  const { width, height } = useWindowSize();
+  const [width, height] = useWindowSize();
+
   return (
     <div className="modal">
       <div className="box">
