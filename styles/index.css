@@ -1,3 +1,6 @@
+:root {
+    --checked-text-color: green;
+}
 .container {
     display: grid;
     margin-top: 5px;
@@ -5,10 +8,16 @@
 }
 
 .leftContainer {
-    /* background-color: rgb(255, 0, 0); */
-    display: grid;
+    /* display: grid; */
     justify-content: center;
-    color: white;
+    background-color: rgb(0,0,0,0);
+    
+    margin-top: auto;
+    margin-left: auto;
+
+    /* Scrollable div */
+    /* max-height: 900px;
+    overflow-y: scroll; */
 }
 
 .rightContainer {
@@ -17,7 +26,7 @@
 }
 
 .wheel-div {
-    padding-top: 11%;
+    padding-top: 6%;
 }
 
 .checkboxContainer {
@@ -29,6 +38,11 @@
     grid-template-columns: 1em auto;
     gap: 0.5em;
     text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff;
-    color: #000;
-    padding: 13px
+    color: var(--checked-text-color);
+    padding: 13px;
 }
+
+/* Hiding the box in checkbox */
+/* input[type="checkbox"] {
+    visibility: hidden;
+} */

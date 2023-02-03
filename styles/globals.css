@@ -1,20 +1,32 @@
 .navbar,
 .h1 {
   background-color: rgb(32, 31, 31);
-  display: flex;
+  display: none;
   justify-content: space-evenly;
+  
 }
 
 body {
-  background-image: url("../img/casino.jpg");
+  background-image: url("../img/casino2.png");
   background-repeat: no-repeat;
   background-size: cover;
   height: 100vh;
   margin: 0;
   padding: 0;
+  overflow: hidden;
 }
 
 h1 {
   text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff;
   color: #000;
+}
+
+
+.toggleButton {
+  background: linear-gradient(40deg, #201c99, #af2da6);
+  width: 25em;
+  height: 5em;
+  color: white;
+  border-radius: 25px;
+  font-weight: bold;
 }
