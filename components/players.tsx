@@ -6,7 +6,7 @@ import {
   useImperativeHandle,
   ForwardRefRenderFunction,
 } from 'react';
-import data from '../lib/data/fakeData.json';
+import data from '../lib/data/data.json';
 
 // Importing Interfaces
 import {
@@ -32,26 +32,33 @@ function CheckBox({
   addToPlayers,
   removePlayer,
 }: CheckBoxProps) {
-  const checkboxRef = useRef<HTMLInputElement | null>(null);
-  const checkCheckbox = () => {
-    if (checkboxRef.current?.checked) {
+  const checkBoxRef = useRef<HTMLInputElement | null>(null);
+
+  const checkPlayer = () => {
+    if (checkBoxRef.current?.checked) {
       addToPlayers(item);
     }
 
-    if (!checkboxRef.current?.checked) {
+    if (!checkBoxRef.current?.checked) {
       removePlayer(item.NAME);
     }
   };
+
+  if (checkBoxRef.current?.checked) {
+    document
+      .getElementById(`htmlFor=${i.toString}`)
+      ?.style.setProperty('--checked-text-color', 'green');
+  }
   return (
     <div className="checkboxContainer" key={i}>
       <input
         type={'checkbox'}
         className={'checkbox'}
         id={i.toString()}
-        ref={checkboxRef}
+        ref={checkBoxRef}
         disabled={disabled}
         onClick={() => {
-          checkCheckbox();
+          checkPlayer();
         }}
         checked={
           players.find((player) => {
@@ -73,6 +80,8 @@ const Players: ForwardRefRenderFunction<IPlayerHandle, IPlayersProps> = (
 ) => {
   const [participants, _setParticipants] = useState<IPlayer[]>(data);
   const [players, setPlayers] = useState<IPlayer[]>(data);
+  const [buttonToggle, setButtonToggle] = useState<boolean>(true);
+  const [buttonText, setButtonText] = useState<string>('Fjern alle Spillere');
 
   const addToPlayers = (player: IPlayer) => {
     setPlayers((players) => {
@@ -89,6 +98,32 @@ const Players: ForwardRefRenderFunction<IPlayerHandle, IPlayersProps> = (
     });
   };
 
+  const toggleChecked = () => {
+    setButtonToggle(!buttonToggle);
+
+    // If playerToggle is true, add all players from list
+    if (buttonToggle) {
+      // Changes text to "Check all players"
+      setButtonText('Velg alle Spillere');
+      return players.forEach((element) => {
+        removePlayer(element.NAME);
+      });
+    }
+
+    // If playerToggle is false, add all players to list
+    if (!buttonToggle) {
+      // Changes text to "Remove all players"
+      setButtonText('Fjern alle Spillere');
+      return data.forEach((element) => {
+        addToPlayers({
+          NAME: element.NAME,
+          WINCHANCE: element.WINCHANCE,
+          WINRATE: element.WINRATE,
+        });
+      });
+    }
+  };
+
   useImperativeHandle(ref, () => ({
     removePlayer,
   }));
@@ -99,9 +134,24 @@ const Players: ForwardRefRenderFunction<IPlayerHandle, IPlayersProps> = (
 
   return (
     <div>
-      <h1>Velg antall deltagere</h1>
+      <div>
+        <input
+          type="button"
+          className="toggleButton"
+          value={buttonText}
+          onClick={toggleChecked}
+          disabled={disabled}
+        />
+      </div>
       {participants.map((item, i) =>
-        CheckBox({ item, i, disabled, players, addToPlayers, removePlayer }),
+        CheckBox({
+          item,
+          i,
+          disabled,
+          players,
+          addToPlayers,
+          removePlayer,
+        }),
       )}
     </div>
   );
