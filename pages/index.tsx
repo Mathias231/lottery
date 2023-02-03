@@ -45,7 +45,6 @@ export default function Home() {
       <main>
         <div className="container">
           <div className="leftContainer">
-            {/* <h1>Velg antall deltagere</h1>  Unhide this to push down all button to center and remove <h1> in players with same text as this <h1>*/}
             <Players
               disabled={spinning}
               changePlayers={changePlayers}
@@ -53,7 +52,6 @@ export default function Home() {
             />
           </div>
           <div className="rightContainer">
-            {/* <h1>Who is the winner today?</h1> */}
             <div className="wheel-div">
               <Wheel
                 changeSpinning={changeSpinning}
