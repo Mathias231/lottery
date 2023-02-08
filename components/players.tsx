@@ -6,7 +6,7 @@ import {
   useImperativeHandle,
   ForwardRefRenderFunction,
 } from 'react';
-import data from '../lib/data/data.json';
+import data from '../lib/data/fakeData.json';
 
 // Importing Interfaces
 import {
