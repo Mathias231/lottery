@@ -22,10 +22,10 @@
     box-sizing: content-box;
     width: calc(var(--wheel-size) + 2 * var(--wheel-border-size));
     height: calc(var(--wheel-size) + 2 * var(--wheel-border-size));
-    padding: 3px;
+    padding: 4px;
     margin: auto;
     background-color: var(--neutral-color);
-    border: solid var(--wheel-color) 3px;
+    border: solid var(--wheel-color) 0px;
     border-radius: 50%;
     user-select: none;
 }
@@ -40,7 +40,7 @@
     width: 0;
     top: 50%;
     transform: translateY(-50%);
-    z-index: 2;
+    z-index: 1;
     border: solid transparent 20px;
     border-left-width: 0;
 }
@@ -101,7 +101,7 @@
     /* position de l'item */
     top: 50%;
     left: 50%;
-    width: 50%;
+    width:50%;
     transform-origin: center left;
     transform: translateY(-60%) rotate(calc(var(--item-nb) * (360deg / var(--nb-item, 1))));
 
@@ -126,7 +126,7 @@
     left: 50%;
     transform: translate(-50%, -50%);
     padding-left: 0px;
-    opacity: 0.25;
+    opacity: 0.10;
 
     /* 
     Largeur du triangle
