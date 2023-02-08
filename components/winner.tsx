@@ -27,7 +27,7 @@ const Winner = ({
           <h1>{winnerName}</h1>
         </div>
         <div className="button">
-          <button onClick={resetWinner}>Lukk!</button>
+          <button onClick={resetWinner}>Lukk</button>
         </div>
         <Confetti width={width} height={height} />
       </div>

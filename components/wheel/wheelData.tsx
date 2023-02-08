@@ -13,7 +13,7 @@ import {
   IWheelHandle,
 } from '../../interface/wheelGlobal.interface';
 
-// Randon Function
+// Random numbers function
 const randomNumbers = (min: number, max: number) => {
   return Math.random() * (max - min) + min;
 };
