@@ -11,7 +11,8 @@ const Winner = ({
   removeWinner,
   resetSelectedItem,
 }: WinnerProps) => {
-  const reset = () => {
+  //If there is a winner, display the winner, remove the winner, and reset the selected item.
+  const resetWinner = () => {
     winnerDisplay(null);
     removeWinner(winnerName);
     if (resetSelectedItem) resetSelectedItem();
@@ -26,7 +27,7 @@ const Winner = ({
           <h1>{winnerName}</h1>
         </div>
         <div className="button">
-          <button onClick={reset}>Rull igjen!</button>
+          <button onClick={resetWinner}>Lukk!</button>
         </div>
         <Confetti width={width} height={height} />
       </div>
