@@ -36,6 +36,7 @@ function CheckBox({
 
   const checkPlayer = () => {
     if (checkBoxRef.current?.checked) {
+      console.log(checkBoxRef.current?.id);
       addToPlayers(item);
     }
 
@@ -44,11 +45,6 @@ function CheckBox({
     }
   };
 
-  if (checkBoxRef.current?.checked) {
-    document
-      .getElementById(`htmlFor=${i.toString}`)
-      ?.style.setProperty('--checked-text-color', 'green');
-  }
   return (
     <div className="checkboxContainer" key={i}>
       <input
@@ -67,7 +63,11 @@ function CheckBox({
         }
         readOnly
       />
-      <label className={'checkmark'} htmlFor={i.toString()}>
+      <label
+        id={i.toString()}
+        htmlFor={i.toString()}
+        className={checkBoxRef.current?.checked ? 'checked' : ''}
+      >
         {item.NAME}
       </label>
     </div>
